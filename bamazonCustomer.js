@@ -18,7 +18,7 @@ connection.connect(function (err) {
 });
 
 function runSearch() {
-    console.log("-----------------------------------------------");
+    console.log("----------------------------------------------------");
     console.log("Items for sale:");
     console.log("Product ID || Item || Price");
     console.log("1 || sneakers || price: $19.99");
@@ -31,7 +31,7 @@ function runSearch() {
     console.log("8 || kid laptop || Price: $40.00");
     console.log("9 || iPhone One-Trillion || price: $55,500,000");
     console.log("10|| Cheese || price: $2.00")
-    console.log("-----------------------------------------------");
+    console.log("----------------------------------------------------");
     inquirer
         .prompt({
             name: "action",
