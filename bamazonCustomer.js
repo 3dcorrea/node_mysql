@@ -21,16 +21,16 @@ function runSearch() {
     console.log("----------------------------------------------------");
     console.log("Items for sale:");
     console.log("Product ID || Item || Price");
-    console.log("1 || sneakers || price: $19.99");
-    console.log("2 || polo shirt || price: $12.99");
-    console.log("3 || pants|| price: $15.99");
-    console.log("4 || boots ||  price: $39.99");
-    console.log("5 || ultra laptop || price: $96,000.00");
-    console.log("6 || kind-of-okay laptop || price $20.00");
-    console.log("7 || Killer Klowns From Outer Space- Dan Deluxe Edition || price: $9,001.00");
-    console.log("8 || kid laptop || Price: $40.00");
-    console.log("9 || iPhone One-Trillion || price: $55,500,000");
-    console.log("10|| Cheese || price: $2.00")
+    console.log("1 || sneakers || $19.99");
+    console.log("2 || polo shirt || $12.99");
+    console.log("3 || pants|| $15.99");
+    console.log("4 || boots ||  $39.99");
+    console.log("5 || ultra laptop || $96,000.00");
+    console.log("6 || kind-of-okay laptop ||$20.00");
+    console.log("7 || Killer Klowns From Outer Space- Dan Deluxe Edition || $9,001.00");
+    console.log("8 || kid laptop || $40.00");
+    console.log("9 || iPhone One-Trillion || $55,500,000");
+    console.log("10|| Cheese || $2.00")
     console.log("----------------------------------------------------");
     inquirer
         .prompt({
