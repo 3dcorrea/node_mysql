@@ -36,47 +36,47 @@ function runSearch() {
         .prompt({
             name: "action",
             type: "input",
-            message: "What is the product ID of the item you would like to buy?",
+            message: "What is the item you would like to buy?",
             choices: [{
-                key: 1,
-                value: "sneakers"
-            },
-            {
-                key: 2,
-                value: "polo shirt"
-            },
-            {
-                key: 3,
-                value: "pants"
-            },
-            {
-                key: 4,
-                value: "boots"
-            },
-            {
-                key: 5,
-                value: "ultra laptop"
-            },
-            {
-                key: 6,
-                value: "kind-of-okay laptop"
-            },
-            {
-                key: 7,
-                value: "Killer Klowns From Outer Space- Dan Deluxe Edition"
-            },
-            {
-                key: 8,
-                value: "kid laptop"
-            },
-            {
-                key: 9,
-                value: "iPhone One-Trillion"
-            },
-            {
-                key: 10,
-                value: "Cheese"
-            },
+                    key: 1,
+                    value: "sneakers"
+                },
+                {
+                    key: 2,
+                    value: "polo shirt"
+                },
+                {
+                    key: 3,
+                    value: "pants"
+                },
+                {
+                    key: 4,
+                    value: "boots"
+                },
+                {
+                    key: 5,
+                    value: "ultra laptop"
+                },
+                {
+                    key: 6,
+                    value: "kind-of-okay laptop"
+                },
+                {
+                    key: 7,
+                    value: "Killer Klowns From Outer Space- Dan Deluxe Edition"
+                },
+                {
+                    key: 8,
+                    value: "kid laptop"
+                },
+                {
+                    key: 9,
+                    value: "iPhone One-Trillion"
+                },
+                {
+                    key: 10,
+                    value: "Cheese"
+                },
             ]
         })
 
