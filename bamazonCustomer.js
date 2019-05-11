@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require('cli-table3');
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -12,97 +13,73 @@ var connection = mysql.createConnection({
     database: "bamazon"
 });
 
+
 connection.connect(function (err) {
     if (err) throw err;
     runSearch();
 });
 
 function runSearch() {
-    console.log("----------------------------------------------------");
-    console.log("Items for sale:");
-    console.log("Product ID || Item || Price");
-    console.log("1 || sneakers || $19.99");
-    console.log("2 || polo shirt || $12.99");
-    console.log("3 || pants|| $15.99");
-    console.log("4 || boots ||  $39.99");
-    console.log("5 || ultra laptop || $96,000.00");
-    console.log("6 || kind-of-okay laptop ||$20.00");
-    console.log("7 || Killer Klowns From Outer Space- Dan Deluxe Edition || $9,001.00");
-    console.log("8 || kid laptop || $40.00");
-    console.log("9 || iPhone One-Trillion || $55,500,000");
-    console.log("10|| Cheese || $2.00")
-    console.log("----------------------------------------------------");
-    inquirer
-        .prompt({
-            name: "action",
-            type: "input",
-            message: "What is the item you would like to buy?",
-            choices: [{
-                    key: 1,
-                    value: "sneakers"
-                },
-                {
-                    key: 2,
-                    value: "polo shirt"
-                },
-                {
-                    key: 3,
-                    value: "pants"
-                },
-                {
-                    key: 4,
-                    value: "boots"
-                },
-                {
-                    key: 5,
-                    value: "ultra laptop"
-                },
-                {
-                    key: 6,
-                    value: "kind-of-okay laptop"
-                },
-                {
-                    key: 7,
-                    value: "Killer Klowns From Outer Space- Dan Deluxe Edition"
-                },
-                {
-                    key: 8,
-                    value: "kid laptop"
-                },
-                {
-                    key: 9,
-                    value: "iPhone One-Trillion"
-                },
-                {
-                    key: 10,
-                    value: "Cheese"
-                },
-            ]
-        })
+    connection.query("SELECT * FROM bamazon.products", function (err, data) {
+        console.log(data);
+    });
+    
+    table = new Table({
+        head: ['TH 1 label', 'TH 2 label', 'TH 3 label', ]
+      , colWidths: [100, 200]
+    });
+   
+//     inquirer
+//         .prompt({
+//             name: "action",
+//             type: "rawlist",
+//             message: "What is the item ID of the product you would like to buy?",
+//             choices: [
+//                 "1: sneakers",
+//                 "2: polo shirt",
+//                 "3: pants",
+//                 "4: boots",
+//                 "5: ultra laptop",
+//                 "6: kind-of-okay laptop",
+//                 "7: Killer Klowns From Outer Space- Dan Deluxe Edition",
+//                 "8: kid laptop",
+//                 "9: iPhone One-Trillion",
+//                 "10: Cheese Pizza"
+//             ]
+//         })
 
-        .then(function (answer) {
-            switch (answer.action) {
-                case "Find songs by artist":
-                    artistSearch();
-                    break;
+//         .then(function (answer) {
+//             switch (answer.action) {
+//                 case "1: sneakers",
+//                 "2: polo shirt",
+//                 "3: pants",
+//                 "4: boots",
+//                 "5: ultra laptop",
+//                 "6: kind-of-okay laptop",
+//                 "7: Killer Klowns From Outer Space- Dan Deluxe Edition",
+//                 "8: kid laptop",
+//                 "9: iPhone One-Trillion",
+//                 "10: Cheese Pizza":
+//                     artistSearch();
+//                     break;
 
-                case "Find all artists who appear more than once":
-                    multiSearch();
-                    break;
+//                 case "Find all artists who appear more than once":
+//                     multiSearch();
+//                     break;
 
-                case "Find data within a specific range":
-                    rangeSearch();
-                    break;
+//                 case "Find data within a specific range":
+//                     rangeSearch();
+//                     break;
 
-                case "Search for a specific song":
-                    songSearch();
-                    break;
+//                 case "Search for a specific song":
+//                     songSearch();
+//                     break;
 
-                case "exit":
-                    connection.end();
-                    break;
-            }
-        })
+//                 case "exit":
+//                     connection.end();
+//                     break;
+//             }
+//         })
 };
 
 
