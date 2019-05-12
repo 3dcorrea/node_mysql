@@ -34,15 +34,50 @@ function runSearch() {
 };
 
 var makePurchase = function () {
-        inquirer.prompt([{
-                name: "itemId",
-                type: "input",
-                message: "Enter Product ID Number:"
-            }, {
-                name: "quantity",
-                type: "input",
-                message: "How many would you like to purchase?"
-            }]).then(function (answer) {connection.query("SELECT * FROM products", function (err, res) {
-                if (err) throw err;
-    
-                var product;
+    inquirer.prompt([{
+        name: "itemId",
+        type: "input",
+        message: "Enter Product ID Number:"
+    }, {
+        name: "quantity",
+        type: "input",
+        message: "How many would you like to purchase?"
+    }]).then(function (answer) {
+        connection.query("SELECT * FROM products", function (err, res) {
+            if (err) throw err;
+
+            var product;
+            for (var i = 0; i < res.length; i++) {
+                if (res[i].item_id === parseInt(answer.itemId)) {
+                    product = res[i];
+
+                }
+            }
+            for (var i = 0; i < res.length; i++) {
+                if (res[i].item_id === parseInt(answer.itemId)) {
+                    product = res[i];
+
+                }
+            }
+            if (product.stock_quantity > parseInt(answer.quantity)) {
+                connection.query(
+                    "UPDATE products SET ? WHERE ?",
+                    [{
+                            stock_quantity: (product.stock_quantity - parseInt(answer.quantity))
+                        },
+                        {
+                            item_id: product.item_id
+                        }
+                    ],
+                    function (error) {
+                        if (error) throw error;
+                        console.log("Your total is " + "$" + parseInt(answer.quantity) * product.price + ". Thanks for overpaying, and come again!");
+                    }
+                );
+            } else {
+                console.log("Not enough inventory to sell at the moment.");
+            }
+        });
+    });
+
+};
