@@ -21,7 +21,7 @@ function runSearch() {
                 "Department: " + res[i].department_name + " || " +
                 "Price: " + "$" + res[i].price + " || " +
                 "Inventory: " + res[i].stock_quantity);
-            console.log("---------------------------------spend money---------------------------------------");
+            console.log("-----------------------------------------------------------------------------------------------");
         }
         makePurchase();
     });
