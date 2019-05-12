@@ -16,10 +16,10 @@ function runSearch() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            console.log("Product ID: " + res[i].item_id + "|" +
-                "Item: " + res[i].product_name + "|" +
-                "Department: " + res[i].department_name + "|" +
-                "Price: " + "$" + res[i].price + "|" +
+            console.log("Product ID: " + res[i].item_id + " || " +
+                "Item: " + res[i].product_name + " || " +
+                "Department: " + res[i].department_name + " || " +
+                "Price: " + "$" + res[i].price + " || " +
                 "Inventory: " + res[i].stock_quantity);
             console.log("--------------------------------------------------------------------------------");
         }
