@@ -45,4 +45,25 @@ var makePurchase = function () {
             }]).then(function (answer) {connection.query("SELECT * FROM products", function (err, res) {
                 if (err) throw err;
     
-                var product;
+                var product; for (var i = 0; i < res.length; i++) {
+                if (res[i].item_id === parseInt(answer.itemId)) {
+                    product = res[i];
+
+                }
+            } for (var i = 0; i < res.length; i++) {
+                if (res[i].item_id === parseInt(answer.itemId)) {
+                    product = res[i];
+
+                }
+            }  if (product.stock_quantity > parseInt(answer.quantity)) {
+                connection.query(
+                    "UPDATE products SET ? WHERE ?",
+                    [{
+                            stock_quantity: (product.stock_quantity - parseInt(answer.quantity))
+                        },
+                        {
+                            item_id: product.item_id
+                        }
+                    ],
+
+};
