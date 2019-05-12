@@ -42,4 +42,7 @@ var makePurchase = function () {
                 name: "quantity",
                 type: "input",
                 message: "How many would you like to purchase?"
-            }]).then(function (answer) {
+            }]).then(function (answer) {connection.query("SELECT * FROM products", function (err, res) {
+                if (err) throw err;
+    
+                var product;
