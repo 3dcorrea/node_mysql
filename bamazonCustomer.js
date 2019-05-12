@@ -32,3 +32,17 @@ function runSearch() {
     });
 
 };
+
+var makePurchase = function () {
+        inquirer.prompt([{
+                name: "itemId",
+                type: "input",
+                message: "Enter Product ID Number:"
+            }, {
+                name: "quantity",
+                type: "input",
+                message: "How many would you like to purchase?"
+            }]).then(function (answer) {connection.query("SELECT * FROM products", function (err, res) {
+                if (err) throw err;
+    
+                var product;
