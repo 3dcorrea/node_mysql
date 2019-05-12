@@ -1,23 +1,17 @@
+DROP DATABASE IF EXISTS bamazon;
+CREATE DATABASE bamazon;
+
 USE bamazon;
 
-SET NAMES utf8 ;
-
-DROP TABLE IF EXISTS products;
-CREATE TABLE products
-(
-  item_id int(11) NOT NULL
-  AUTO_INCREMENT,
-  product_name varchar
-  (50) DEFAULT NULL,
-  department_name varchar
-  (20) DEFAULT NULL,
-  price float DEFAULT NULL,
-  stock_quantity int
-  (11) DEFAULT NULL,
-  PRIMARY KEY
-  (item_id)
+CREATE TABLE products (
+  item_id INT(11) AUTO_INCREMENT NOT NULL,
+  product_name VARCHAR(100)  NULL,
+  department_name VARCHAR(100)  NULL,
+  price DECIMAL(10,2) NOT NULL,
+  stock_quantity INT(11) NOT NULL,
+  PRIMARY KEY (item_id)
+  
 );
-
   INSERT INTO 
   products
   VALUES
