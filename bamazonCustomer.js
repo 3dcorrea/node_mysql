@@ -12,6 +12,7 @@ connection.connect(function (err) {
     if (err) throw err;
     runSearch();
 });
+
 function runSearch() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
@@ -21,6 +22,7 @@ function runSearch() {
                 "Department: " + res[i].department_name + " || " +
                 "Price: " + "$" + res[i].price + " || " +
                 "Inventory: " + res[i].stock_quantity);
+            console.log("-----------------------------------------------------------------------------------------------------------------------------------");
             console.log("-----------------------------------------------------------------------------------------------------------------------------------");
         }
         makePurchase();
